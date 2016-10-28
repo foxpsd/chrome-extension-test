@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+
+    "name": "Getting started example1",
+    "description": "This extension shows a Google Image search result for the current page",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html",
+        "default_title": "Mix Rush Plan"
+    },
+    "content_scripts": [
+        {
+          "matches": ["http://www.mi.com/index.html"],
+          "js": ["scripts/jquery-1.10.1.min.js","scripts/mainPage.js"]
+        },{
+          "matches": ["http://item.mi.com/buyphone/*"],
+          "js": ["scripts/jquery-1.10.1.min.js","scripts/buyPage.js"]
+        },{
+          "matches": ["http://cart.mi.com/cart/recommend/goods_id/*"],
+          "js": ["scripts/jquery-1.10.1.min.js","scripts/recommendPage.js"]
+        },
+        {
+          "matches": ["http://static.mi.com/cart/"],
+          "js": ["scripts/jquery-1.10.1.min.js","scripts/cartPage.js"]
+        },
+        {
+          "matches": ["http://order.mi.com/buy/checkout*"],
+          "js": ["scripts/jquery-1.10.1.min.js","scripts/checkoutPage.js"]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        // "https://ajax.googleapis.com/",
+        "https://img.dxycdn.com/"
+    ]
+}
